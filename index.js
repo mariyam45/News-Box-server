@@ -8,7 +8,12 @@ const port = process.env.PORT || 5000;
 const categories = require("./data/categories.json");
 const news = require("./data/news.json");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("news box running");
